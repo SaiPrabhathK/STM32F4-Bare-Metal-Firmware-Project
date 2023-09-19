@@ -50,3 +50,15 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Files created by IDE
+.metadata/
+.settings/
+Debug/
+Inc/
+Startup/
+.cproject
+.project
+*.ld
+*.launch
+*.cfg
