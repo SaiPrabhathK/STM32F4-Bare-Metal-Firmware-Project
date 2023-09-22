@@ -7,12 +7,14 @@ int main(void)
 {
 	RCC->AHB1ENR |= GPIOAEN;
 
-	GPIOA->MODER |= (1U<<10);
-	GPIOA->MODER &= ~(1U<<11);
+	GPIOA->MODER |= (1U<<2);
+	GPIOA->MODER &= ~(1U<<3);
 
 	while(1)
 	{
-		GPIOA->BSRR = (1U<<5);
-		GPIOA->BSRR = (1U<<21);
+		GPIOA->BSRR |= (1U<<17);
+		for(int i = 0; i < 1000000; i++);
+		GPIOA->BSRR |= (1U<<1);
+		for(int i = 0; i < 1000000; i++);
 	}
 }

@@ -60,7 +60,7 @@ int main(void)
 	//1. Enable clock access to GPIOA
 	RCC_AHB1ENR |= GPIOAEN;
 
-	//2. Set PA5 as output pin
+	//2. Set PA1 as output pin
 	GPIOA_MODE_R |= (1U<<2); //Set bit 2 to 1
 	GPIOA_MODE_R &= ~(1U<<3); //Set bit 3 to 0
 
@@ -68,8 +68,9 @@ int main(void)
 	while(1)
 	{
 		//2. Set PA1 low or clear PA1
-		//GPIOA_OD_R &= ~LED_PIN;
-		for(int i = 0; i < 100000; i++) {}
-		GPIOA_OD_R = 1;
+		GPIOA_OD_R |= LED_PIN;
+		for(int i = 0; i < 1000000; i++);
+		GPIOA_OD_R &= ~LED_PIN;
+		for(int i = 0; i < 1000000; i++);
 	}
 }
